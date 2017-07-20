@@ -68,3 +68,53 @@ Script to read the property file above:
 	done < <(grep . "$START_DIRECTORY/$CONFIG_FILE")
 
 ```
+
+## Reading Command Line Arguments And Acting Upon The Values
+
+Its handy to give a list of options, collect what the user wants and then perform a task based on their selection. The following is a script I like to use to SSH into different machines.
+
+```shell
+
+echo "++++++++++++++++"
+echo "Which Server?"
+echo "++++++++++++++++"
+echo "1: QA"
+echo "2: Jenkins"
+echo "3: Production"
+echo "4: Production Eureka"
+echo "5: Data Server"
+echo "6: Artifactory"
+echo "---------------"
+read option
+
+if [[ ("$option" -eq "1") ]]; then
+		echo "SSHing into the QA Server"
+		ssh -i xxxxx.pem xxxx@xx.xx.xxx.xxx
+fi
+
+if [[ ("$option" -eq "2") ]]; then
+		echo "SSHing into the Jenkins Server"
+		ssh -i xxxxx.pem xxxx@xx.xx.xxx.xxx
+fi
+
+if [[ ("$option" -eq "3") ]]; then
+		echo "SSHing into the Production Server"
+		ssh -i xxxxx.pem xxxx@xx.xx.xxx.xxx
+fi
+
+if [[ ("$option" -eq "4") ]]; then
+		echo "SSHing into the Production Eureka Server"
+		ssh -i xxxxx.pem xxxx@xx.xx.xxx.xxx
+fi
+
+if [[ ("$option" -eq "5") ]]; then
+		echo "SSHing into the Data Server"
+		ssh -i xxxxx.pem xxxx@xx.xx.xxx.xxx
+fi
+
+if [[ ("$option" -eq "6") ]]; then
+                echo "SSHing into Artifactory"
+                ssh -i xxxxx.pem xxxx@xx.xx.xxx.xxx
+fi
+
+```
