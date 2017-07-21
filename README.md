@@ -29,6 +29,18 @@ Its often handy to know where in the file system a script is running. This comma
 export START_DIRECTORY=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 ```
+
+## Ensuring The Right Number Of Parameters
+
+There are times you might wish to ensure a certain number of arguements.
+
+```shell
+
+if [ "$#" -ne 3 ]; then
+    echo "There needs to be at least 3 args"
+fi
+
+```
 ## Stopping A Script If There Are No Arguements Passed In
 
 If a script needs to be have arguements passed in for it to work, you can add logic like this in the beginning of the script to stop execution if no arguements are specified.
