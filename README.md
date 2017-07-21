@@ -68,8 +68,7 @@ Script to read the property file above:
 	done < <(grep . "$START_DIRECTORY/$CONFIG_FILE")
 
 ```
-
-## Reading Command Line Arguments And Acting Upon The Values
+Reading User Input And Acting Upon The Values
 
 Its handy to give a list of options, collect what the user wants and then perform a task based on their selection. The following is a script I like to use to SSH into different machines.
 
