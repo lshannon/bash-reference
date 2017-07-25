@@ -41,6 +41,20 @@ if [ "$#" -ne 3 ]; then
 fi
 
 ```
+
+## If/Else Conditions
+
+An example of IF/Then.
+
+```shell
+
+            if [ "$greeting" = "hello" ]; then
+               echo "Hi!"
+            else
+               echo "What...no hello?"
+            fi
+
+```
 ## Stopping A Script If There Are No Arguements Passed In
 
 If a script needs to be have arguements passed in for it to work, you can add logic like this in the beginning of the script to stop execution if no arguements are specified.
