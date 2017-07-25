@@ -48,11 +48,11 @@ An example of IF/Then.
 
 ```shell
 
-            if [ "$greeting" = "hello" ]; then
-               echo "Hi!"
-            else
-               echo "What...no hello?"
-            fi
+if [ "$greeting" = "hello" ]; then
+ echo "Hi!"
+else
+ echo "What...no hello?"
+fi
 
 ```
 ## Stopping A Script If There Are No Arguements Passed In
