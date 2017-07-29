@@ -70,6 +70,22 @@ if [ $# -eq 0 ]; then
 
 ```
 
+## Checking If A File Exists
+
+The following checks if a file exists.
+
+```shell
+
+#!/bin/bash
+if [ -e smoketest.txt ]
+then
+    echo "We have a smoketest file. Yipeee"
+else
+    echo "There is no smoketest file! Boooooooooo"
+fi
+
+```
+
 ## Reading The Contents Of A File
 
 Sometimes so many arguements are passed into a script, it makes more sense to construct a properties file. In this example we have several row, with each row consisting of arguments seperated by spaces. Here is how values can be read from a file. Note: NAMES[i] contains the args in their respective positions.
