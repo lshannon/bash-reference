@@ -159,3 +159,11 @@ if [[ ("$option" -eq "6") ]]; then
 fi
 
 ```
+
+## Copy Files To A Remote Server
+
+```shell
+
+scp target/CoolBootApp-0.0.1-SNAPSHOT.jar root@xx.xxx.xxx.xx:/path-to-folder
+
+```
