@@ -167,3 +167,11 @@ fi
 scp target/CoolBootApp-0.0.1-SNAPSHOT.jar root@xx.xxx.xxx.xx:/path-to-folder
 
 ```
+
+## Figuring out the name of a Linux Distro
+
+```shell
+
+cat /etc/*-release
+
+```
