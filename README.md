@@ -70,6 +70,18 @@ if [ $# -eq 0 ]; then
 
 ```
 
+## Give The User A Change To Cancel
+
+```shell
+
+echo "Are you good to continue? (Type 'Y' to continue)"
+read -s CONFIRMATION
+if [[ ("$CONFIRMATION" -ne "Y") ]]; then
+	exit 0;
+fi
+
+```
+
 ## Checking If A File Exists
 
 The following checks if a file exists.
