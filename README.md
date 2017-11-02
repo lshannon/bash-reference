@@ -48,7 +48,7 @@ An example of IF/Then.
 
 ```shell
 
-if [ "$greeting" = "hello" ]; then
+if [ "$greeting" == "hello" ]; then
  echo "Hi!"
 else
  echo "What...no hello?"
@@ -74,10 +74,11 @@ if [ $# -eq 0 ]; then
 
 ```shell
 
-echo "Are you good to continue? (Type 'Y' to continue)"
+echo "Are good to continue? (Type 'Y' to proceed)"
 read -s CONFIRMATION
-if [[ ("$CONFIRMATION" -ne "Y") ]]; then
-	exit 0;
+if [ "$CONFIRMATION" != "Y" ]; then
+  echo "Terminating the program"
+  exit 0;
 fi
 
 ```
