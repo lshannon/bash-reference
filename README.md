@@ -20,6 +20,20 @@ fi
 
 ```
 
+## Checking If An Agruement Is Blank And Setting A Default
+
+```shell
+
+echo 'Enter the API (default is:https://api.run.pivotal.io)'
+  read API
+  echo "Read In: $API"
+  if [ -z "$API" ]; then
+    echo "Using default API"
+    API='https://api.run.pivotal.io'
+  fi
+
+```
+
 ## Getting The Location The Script Is Running Into A Variable
 
 Its often handy to know where in the file system a script is running. This command will do the trick.
