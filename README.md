@@ -202,3 +202,14 @@ scp target/CoolBootApp-0.0.1-SNAPSHOT.jar root@xx.xxx.xxx.xx:/path-to-folder
 cat /etc/*-release
 
 ```
+
+## How to check If Script Is Running As Sudo
+
+```shell
+
+if [ "$EUID" -ne 0 ]
+  then echo "Please run as root"
+  exit
+fi
+
+```
