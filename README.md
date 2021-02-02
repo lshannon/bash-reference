@@ -89,7 +89,7 @@ if [ $# -eq 0 ]; then
 ```shell
 
 echo "Are good to continue? (Type 'Y' to proceed)"
-read -s CONFIRMATION
+read CONFIRMATION
 if [ "$CONFIRMATION" != "Y" ]; then
   echo "Terminating the program"
   exit 0;
