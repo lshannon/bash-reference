@@ -2,7 +2,17 @@
 
 Bash is a great way to automate tasks and make your life easier as both a developer or an operator.
 
-This project contains a few samples and tricks I have found useful.
+This project contains a few samples, tricks and stuff I can never remember :-)
+
+## Start Off With A Bang
+
+These samples assuming the scripts are running bash. Add this to the top of the file to ensure that is the case
+
+```shell
+
+#!/bin/bash
+
+```
 
 ## Run A Command And Test Response
 
