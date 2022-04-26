@@ -223,3 +223,15 @@ if [ "$EUID" -ne 0 ]
 fi
 
 ```
+
+## Check is the previous command successfully executed
+
+```shell
+
+  if [ $? -eq 0 ]; then
+    echo 'GREAT!'
+  else
+    echo 'Houston we have a problem'
+  fi
+
+```
