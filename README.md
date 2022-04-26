@@ -235,3 +235,19 @@ fi
   fi
 
 ```
+
+## Check if a Docker Image is running
+
+```shell
+
+  # there is no keycloak image - or it crashed
+  if [ ! "$(docker ps -q -f name=<name>)" ]; then
+    if [ "$(docker ps -aq -f status=exited -f name=<name>)" ]; then
+        # cleanup
+        docker rm <name>
+    fi
+    # get images
+    sudo docker run -p <args for server>
+  fi
+
+```
