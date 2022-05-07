@@ -18,7 +18,7 @@ These samples assuming the scripts are running bash. Add this to the top of the 
 
 Sometimes you want to run something and then test if the response contains a certain value.
 
-Here is an example. The 'cf' command line interface is used to talk to Cloud Foundry. With this command we are calling the for events of an application. If there is no application we are detecting that and in this case stopping the program.
+Here is an example. The 'cf' command line interface is used to talk to Cloud Foundry. In this example we are testing the output of that command to check if an particular application is running in Cloud Foundry. We are terminating the script if the application is not here, but we also could take this opportunity to install it.
 
 ```shell
 
@@ -31,6 +31,8 @@ fi
 ```
 
 ## Checking If An Agruement Is Blank And Setting A Default
+
+In this snippet we are prompting the user for a value, and then taking action if the supplied a value.
 
 ```shell
 
