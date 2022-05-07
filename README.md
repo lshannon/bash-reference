@@ -4,6 +4,8 @@ Bash is a great way to automate tasks and make your life easier as both a develo
 
 This project contains a few samples, tricks and stuff I can never remember :-)
 
+In the samples folder of this repo you will find some of these snippets as indivual scripts.
+
 ## Start Off With A Bang
 
 These samples assuming the scripts are running bash. Add this to the top of the file to ensure that is the case
@@ -29,20 +31,34 @@ if [[ $OUTPUT == *"App spring not found"* ]]; then
 fi
 
 ```
+## If/Else Conditions
 
-## Checking If An Agruement Is Blank And Setting A Default
-
-In this snippet we are prompting the user for a value, and then taking action if the supplied a value.
+An example of IF/Then.
 
 ```shell
 
-echo 'Enter the API (default is:https://api.run.pivotal.io)'
-  read API
-  echo "Read In: $API"
-  if [ -z "$API" ]; then
-    echo "Using default API"
-    API='https://api.run.pivotal.io'
+if [ "$greeting" == "hello" ]; then
+ echo "Hi!"
+else
+ echo "What...no hello?"
+fi
+
+```
+
+## Checking If An Agruement Is Blank
+
+In this snippet we are prompting the user for a value, and then check to ensure it was not blank.
+
+```shell
+
+echo 'Please supply a non-blank value?'
+  read VALUE
+  if [ -z "$VALUE" ]; then
+    echo "I said 'non-blank'"
+  else
+    echo "You said: $VALUE"
   fi
+echo 'Done!' 
 
 ```
 
@@ -68,19 +84,6 @@ fi
 
 ```
 
-## If/Else Conditions
-
-An example of IF/Then.
-
-```shell
-
-if [ "$greeting" == "hello" ]; then
- echo "Hi!"
-else
- echo "What...no hello?"
-fi
-
-```
 ## Stopping A Script If There Are No Arguements Passed In
 
 If a script needs to be have arguements passed in for it to work, you can add logic like this in the beginning of the script to stop execution if no arguements are specified.
@@ -88,7 +91,7 @@ If a script needs to be have arguements passed in for it to work, you can add lo
 ```shell
 
 if [ $# -eq 0 ]; then
-	    echo "Usage: startSite.sh <name serviceFile>";
+	    echo "Usage: startSite.sh <names of serviceFile>";
 	    echo "Hint: servicesToManageDev.txt, servicesToManageQA.txt, servicesToManageProduction.txt";
 	    echo "Program terminating ...";
 	    exit 1;
@@ -253,3 +256,78 @@ fi
   fi
 
 ```
+
+## Functions
+
+Functions are great to clean up the logic in scripts making them easier to maintain and read. All variables are global in bash. To manipulate
+a variable only within the scope of the function, declare the variable in the function body using the 'local' keyword.
+
+```shell
+
+echo_function () {
+   echo 'Welcome to function one!'
+}
+
+echo_function
+
+```
+
+### Returning A Value
+
+There are a few ways to return a value. In this first example the 'return' keyword is used, and '$?' to output what the function returned after its execution. This is generally used to check the exit status of a function, so only a numberic value can be returned.
+
+```shell
+
+  return_example () {
+    return 'Hello!'
+  }
+
+  return_example
+  echo $?
+
+```
+
+Returning a string value can be done by setting an arguement.
+
+```shell
+
+return_string () {
+    variable_defined_in_function="I was generated in a function. Nice to meet you!"
+}
+
+return_string
+echo $variable_defined_in_function
+
+```
+
+Here we will capture the output of an echo inside function into a variable defined outside of the function. Then echo this externally defined variable.
+The internal variable has the local keyword, so its not global.
+
+```shell
+
+stdout_return_value () {
+  local variable_defined_in_function="I was generated in a function. Nice to meet you!"
+  echo "$func_result"
+}
+
+stdout_return_value="$(stdout_return_value)"
+echo $stdout_return_value
+
+
+```
+
+Finally a few examples of working with parameters and functions.
+
+```bash
+
+arg_function () {
+  echo "Args 1 and 2: $1 $2"
+  echo "Number of args: $#"
+  echo "Total Args: $*"
+}
+
+arg_function "A" "B" "C"
+
+```
+
+
