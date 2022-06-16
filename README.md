@@ -245,15 +245,18 @@ fi
 
 ```shell
 
-  # there is no keycloak image - or it crashed
-  if [ ! "$(docker ps -q -f name=<name>)" ]; then
-    if [ "$(docker ps -aq -f status=exited -f name=<name>)" ]; then
-        # cleanup
-        docker rm <name>
+if [[ -z $(docker ps -q -f name=rabbit) ]]; then
+        echo 'Starting the Rabbit Docker image'
+        sudo docker start rabbitmq
+        if [ $? -eq 0 ]; then
+            echo 'Rabbit is started: http://localhost:15672/ username: guest password: guest'
+        else
+            echo 'Rabbit did not start';
+            exit 1;
+        fi
+    else
+        echo 'Rabbit is already running'
     fi
-    # get images
-    sudo docker run -p <args for server>
-  fi
 
 ```
 
